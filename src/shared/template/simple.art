@@ -1,0 +1,61 @@
+<!-- https://github.com/Wxh16144/glitch-art -->
+<svg 
+  xmlns='http://www.w3.org/2000/svg'
+  xmlns:xlink='http://www.w3.org/1999/xlink'
+  viewBox='0 0 {{width}} {{height}}'
+  style='background-color: {{background}}'
+  {{if width}}width='{{width}}px'{{/if}}
+  {{if height}}height='{{height}}px'{{/if}}
+>
+  <style>
+    {{@ fontCSS }}
+    .text-1,
+    .text-2 {
+      font-family: {{ font }}, monospace;
+      font-size: {{ fontSize }}px;
+    }
+    .text-1 {
+      fill: {{ color1 }};
+    }
+    .text-2 {
+      fill: {{ color2 }};
+      mix-blend-mode: darken;
+    }
+    @media (prefers-color-scheme: dark) {
+      .text-2 { mix-blend-mode: lighten; }
+    }
+  </style>
+
+  <!-- text 1 -->
+  <text
+    y="50%"
+    dominant-baseline="{{ horizontalCenter ? 'middle' : 'auto' }}"
+    x="{{verticalCenter ? '50%' : '0%'}}"
+    text-anchor="{{ verticalCenter ? 'middle' : 'start' }}"
+  >
+    <tspan class="text-1">{{ word }}</tspan>
+    <animateTransform
+      values="{{ animateValues }}"
+      attributeName="transform"
+      dur="1s"
+      repeatCount="indefinite"
+    />
+  </text>
+
+  <!-- text 2 -->
+  <text
+    y="50%"
+    dominant-baseline="{{ horizontalCenter ? 'middle' : 'auto' }}"
+    x="{{verticalCenter ? '50%' : '0%'}}"
+    text-anchor="{{ verticalCenter ? 'middle' : 'start' }}"
+  >
+    <tspan class="text-2">{{ word }}</tspan>
+    <animateTransform
+      values="{{ animateValues }}"
+      attributeName="transform"
+      dur="1s"
+      begin="0.18s"
+      repeatCount="indefinite"
+    />
+  </text>
+</svg>

@@ -1,0 +1,13 @@
+@import url(normalize.css);
+
+body {
+  background-color: lavender;
+  color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: black;
+    color: white;
+  }
+}
