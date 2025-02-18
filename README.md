@@ -10,8 +10,16 @@
 
 ## Usage
 
-```md
-![Glitch Art](https://glitch-art.vercel.app/api/simple?word={YOUR%20TEXT})
+_\*.md_
+
+```markdown
+![Glitch Art](//glitch-art.vercel.app/api/simple?word={YOUR%20TEXT})
+```
+
+_\*.html_
+
+```html
+<img src="//glitch-art.vercel.app/api/simple?word={YOUR%20TEXT}" alt="Glitch Art" />
 ```
 
 ## Parameters
