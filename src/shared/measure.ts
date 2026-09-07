@@ -20,6 +20,7 @@ interface GlyphRun {
 interface MeasurableFont {
   layout(word: string, features?: Record<string, boolean>): GlyphRun;
   unitsPerEm: number;
+  hasGlyphForCodePoint(codePoint: number): boolean;
 }
 
 /** Keyed by the ArrayBuffer (stable across requests thanks to the font cache). */
@@ -57,4 +58,20 @@ export const measureText = (fontBuffer: ArrayBuffer, word: string): TextMetrics 
     maxY: run.bbox.maxY,
     unitsPerEm: font.unitsPerEm,
   };
+};
+
+/**
+ * List the distinct characters of `word` that the (subsetted) font cannot
+ * render. If any come back, the browser would silently fall back to a system
+ * font for them — making server-side measurement diverge from real rendering
+ * (the CJK-in-Fira-Code problem). Callers should reject such requests.
+ */
+export const findMissingGlyphs = (fontBuffer: ArrayBuffer, word: string): string[] => {
+  const font = openFont(fontBuffer);
+  const missing = new Set<string>();
+  for (const char of word) {
+    const codePoint = char.codePointAt(0)!;
+    if (!font.hasGlyphForCodePoint(codePoint)) missing.add(char);
+  }
+  return [...missing];
 };

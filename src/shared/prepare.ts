@@ -1,6 +1,7 @@
 import { fetchFontCSS, FontAsset } from './GoogleFont';
-import { measureText } from './measure';
+import { findMissingGlyphs, measureText } from './measure';
 import { generateShakeValues } from './util';
+import { RequestError } from './validator';
 import {
   CANVAS_PADDING_RATIO,
   DEFAULT_FONT_SIZE,
@@ -42,6 +43,15 @@ async function prepare(options: UserOptions): Promise<RenderData> {
   const asset: FontAsset = await fetchFontCSS(font, fontWeight, word);
   if (asset.fontBuffer.byteLength === 0) {
     throw new Error(`No glyph data returned for font "${font}".`);
+  }
+
+  // The SVG embeds this exact font; if it cannot render the text the browser
+  // would fall back to a system font and the measured layout would be wrong.
+  const missing = findMissingGlyphs(asset.fontBuffer, word);
+  if (missing.length > 0) {
+    throw new RequestError(
+      `font "${font}" does not support: ${missing.join(' ')} — try a font that covers those characters`
+    );
   }
 
   const metrics = measureText(asset.fontBuffer, word);
