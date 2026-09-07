@@ -70,7 +70,10 @@ export const SHOWCASES: ShowcaseItem[] = [
   { word: 'BOOM', font: 'Bungee', palette: 'classic', caption: 'BOOM?font=Bungee' },
   { word: 'SYNTH', font: 'Space Grotesk', fw: '700', palette: 'ultraviolet', caption: 'SYNTH?font=Space Grotesk&fw=700&c1=%237c3aed&c2=%2306b6d4' },
   { word: '反転', font: 'Noto Sans JP', fw: '500', palette: 'graphite', caption: '反転?font=Noto Sans JP&fw=500&c1=%23171717&c2=%239ca3af' },
-  { word: '404', font: 'Fira Code', fw: '400', palette: 'neon', caption: '404?font=Fira Code&c1=%23ff2e88&c2=%2300e5ff' },
+  // NOTE: never use word "404" (or "500") here — Next.js hardcodes those
+  // literal paths to its own not-found/error boundary in production, so
+  // they can never reach the [text] route and would render broken.
+  { word: 'ERROR', font: 'Fira Code', fw: '400', palette: 'neon', caption: 'ERROR?font=Fira Code&c1=%23ff2e88&c2=%2300e5ff' },
   { word: 'café', font: 'Caveat', palette: 'classic', caption: 'café?font=Caveat' },
   { word: 'HYPE', font: 'Bungee', palette: 'graphite', caption: 'HYPE?font=Bungee&c1=%23171717&c2=%239ca3af' },
   { word: 'lofi', font: 'Sour Gummy', palette: 'ultraviolet', caption: 'lofi?font=Sour Gummy&c1=%237c3aed&c2=%2306b6d4' },

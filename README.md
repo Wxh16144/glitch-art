@@ -10,6 +10,9 @@
 
 The rendered text lives in the **path**; everything else is a short query alias.
 
+> Any single-segment URL is a valid image — `/{YOUR%20TEXT}` renders it, even
+> for words you haven't seen before. There is no word list to browse.
+
 _\*.md_
 
 ```markdown

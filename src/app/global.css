@@ -658,7 +658,7 @@ a {
   text-decoration: none;
 }
 
-/* --- 404 (dogfooded from the API) --- */
+/* --- 404 (dogfooded, but never render the word "404" — see not-found.tsx) --- */
 
 .nf {
   min-height: 100vh;
