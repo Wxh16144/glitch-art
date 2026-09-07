@@ -1,12 +1,13 @@
 <!-- https://github.com/Wxh16144/glitch-art -->
-<svg 
+<svg
   xmlns='http://www.w3.org/2000/svg'
   xmlns:xlink='http://www.w3.org/1999/xlink'
   viewBox='0 0 <%= width %> <%= height %>'
+  width='<%= width %>px'
+  height='<%= height %>px'
   style='background-color: <%= background %>'
-  <% if (width) { %>width='<%= width %>px'<% } %>
-  <% if (height) { %>height='<%= height %>px'<% } %>
 >
+  <title><%= word %> · glitch-art</title>
   <style>
     <%- fontCSS %>
     .text-1,
@@ -28,10 +29,8 @@
 
   <!-- text 1 -->
   <text
-    y="50%"
-    dominant-baseline="<%= horizontalCenter ? 'middle' : 'auto' %>"
-    x="<%= verticalCenter ? '50%' : '0%' %>"
-    text-anchor="<%= verticalCenter ? 'middle' : 'start' %>"
+    x="<%= textX %>"
+    y="<%= textY %>"
   >
     <tspan class="text-1"><%= word %></tspan>
     <animateTransform
@@ -44,10 +43,8 @@
 
   <!-- text 2 -->
   <text
-    y="50%"
-    dominant-baseline="<%= horizontalCenter ? 'middle' : 'auto' %>"
-    x="<%= verticalCenter ? '50%' : '0%' %>"
-    text-anchor="<%= verticalCenter ? 'middle' : 'start' %>"
+    x="<%= textX %>"
+    y="<%= textY %>"
   >
     <tspan class="text-2"><%= word %></tspan>
     <animateTransform

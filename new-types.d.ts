@@ -7,7 +7,7 @@ declare module '*.ejs' {
 // so declare the minimal surface this project consumes.
 declare module 'ejs' {
   interface EJS {
-    compile(template: string): (data?: Record<string, unknown>) => string;
+    compile(template: string): (data?: object) => string;
   }
   const ejs: EJS;
   export default ejs;
