@@ -28,4 +28,4 @@ _\*.html_
 > Development phase, parameters may change at any time. Only display the currently relatively stable input parameters.
 
 - `word`: The text you want to display.
-- `font`: Google Fonts name. find [here](https://fonts.google.com/).
+- `font`: Google Fonts name. find [here](https://fonts.google.com/?preview.text=Glitch%20art).
