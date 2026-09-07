@@ -6,8 +6,6 @@
 
 > Enjoy the glitch art effect on your text.
 
-## Status: WIP
-
 ## Usage
 
 The rendered text lives in the **path**; everything else is a short query alias.
@@ -15,21 +13,18 @@ The rendered text lives in the **path**; everything else is a short query alias.
 _\*.md_
 
 ```markdown
-![Glitch Art](//glitch-art.vercel.app/{YOUR%20TEXT})
+![Glitch Art](https://glitch-art.vercel.app/{YOUR%20TEXT})
 ```
 
 _\*.html_
 
 ```html
-<img src="//glitch-art.vercel.app/{YOUR%20TEXT}" alt="Glitch Art" />
+<img src="https://glitch-art.vercel.app/{YOUR%20TEXT}" alt="Glitch Art" />
 ```
 
 > Legacy links `/api/simple?word=...` are still served — they 301 to the canonical URL.
 
 ## Parameters
-
-> [!WARNING]
-> Development phase, parameters may change at any time.
 
 > Use `f` in URLs; the readable `font` alias is equivalent (shown in demos).
 
@@ -55,11 +50,11 @@ auto-scaled to fit the canvas.
 
 ```html
 <!-- auto canvas -->
-<img src="//glitch-art.vercel.app/Glitch%20Art" alt="Glitch Art" />
+<img src="https://glitch-art.vercel.app/Glitch%20Art" alt="Glitch Art" />
 
 <!-- fixed canvas, auto font size -->
-<img src="//glitch-art.vercel.app/Passion?w=380&h=64" alt="Passion" />
+<img src="https://glitch-art.vercel.app/Passion?w=380&h=64" alt="Passion" />
 
 <!-- fully controlled -->
-<img src="//glitch-art.vercel.app/Passion?fs=64&w=380&h=64&font=Sour%20Gummy&fw=500&c1=red&c2=cyan" alt="Passion" />
+<img src="https://glitch-art.vercel.app/Passion?fs=64&w=380&h=64&font=Sour%20Gummy&fw=500&c1=red&c2=cyan" alt="Passion" />
 ```
