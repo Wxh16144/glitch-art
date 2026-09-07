@@ -4,13 +4,15 @@ export const enc = (text: string) => encodeURIComponent(text);
 export const DEFAULT_FONT = 'Fira Code';
 
 /**
- * Canonical production host. Set NEXT_PUBLIC_SITE_URL for a custom domain;
- * falls back to the current Vercel deployment URL.
+ * Canonical host baked into the copy-paste embed examples.
+ *
+ * Only NEXT_PUBLIC_SITE_URL (a custom domain) can override it. Vercel's
+ * deployment-specific URLs (VERCEL_URL, e.g. <name>-<hash>.vercel.app)
+ * are intentionally never used: they change on every redeploy. The
+ * `<project>.vercel.app` alias always points at the latest production build.
  */
 export const PROD_SITE = (
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  process.env.NEXT_PUBLIC_VERCEL_URL ||
-  'glitch-art.vercel.app'
+  process.env.NEXT_PUBLIC_SITE_URL || 'glitch-art.vercel.app'
 ).replace(/^https?:\/\//, '');
 
 /** True when running the Next dev server (client-safe, build-time inlined). */

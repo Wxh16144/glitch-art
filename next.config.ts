@@ -3,14 +3,13 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
 
-  // https://nextjs.org/docs/app/api-reference/next-config-js/turbo#configuring-webpack-loaders
-  experimental: {
-    turbo: {
-      rules: {
-        '*.ejs': {
-          loaders: ['raw-loader'],
-          as: 'js',
-        }
+  // https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack
+  turbopack: {
+    rules: {
+      // raw-loader emits JS — `as` must be a glob rename pattern (not "js").
+      '*.ejs': {
+        loaders: ['raw-loader'],
+        as: '*.js',
       },
     },
   },
