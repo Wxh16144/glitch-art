@@ -1,9 +1,12 @@
 import { NextRequest } from 'next/server';
-import template from 'art-template'
-import svgTemplate from '@/shared/template/simple.art';
+import ejs from 'ejs'
+import svgTemplate from '@/shared/template/simple.ejs';
 import { merge } from '@/shared/util';
 import prepare from '@/shared/prepare';
 import { DEFAULT_OPTIONS } from '@/shared/constants';
+
+// Compile once at module scope, render per-request
+const render = ejs.compile(svgTemplate);
 
 export async function GET(req: NextRequest) {
 
@@ -15,10 +18,7 @@ export async function GET(req: NextRequest) {
 
     const realOptions = await prepare(mergedOptions)
 
-    const view = template.render(
-      svgTemplate,
-      realOptions
-    )
+    const view = render(realOptions)
 
     return new Response(view, {
       status: 200,
