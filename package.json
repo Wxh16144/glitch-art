@@ -13,18 +13,18 @@
     "fontkit": "^2.0.4",
     "geist": "^1.7.2",
     "lru-cache": "^11.5.2",
-    "next": "15.0.3",
+    "next": "^15.5.25",
     "normalize.css": "^8.0.1",
-    "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106"
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
   },
   "devDependencies": {
     "@types/fontkit": "^2.0.9",
     "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
     "eslint": "^8",
-    "eslint-config-next": "15.0.3",
+    "eslint-config-next": "^15.5.25",
     "raw-loader": "^4.0.2",
     "typescript": "^5"
   }
