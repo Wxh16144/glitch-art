@@ -620,9 +620,6 @@ a {
   .hero {
     padding-top: 56px;
   }
-  .usage-grid {
-    grid-template-columns: 1fr;
-  }
   .section {
     padding-top: 64px;
   }
@@ -639,6 +636,26 @@ a {
   html {
     scroll-behavior: auto;
   }
+}
+
+/* --- footer --- */
+
+.footer {
+  margin-top: 96px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  color: var(--fg-muted);
+  font-size: 13px;
+  flex-wrap: wrap;
+}
+
+.footer a {
+  color: var(--fg);
+  text-decoration: none;
 }
 
 /* --- 404 (dogfooded from the API) --- */
